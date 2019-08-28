@@ -76,25 +76,17 @@ class MusicLibraryController
     if genre != nil 
       array = genre.songs.sort_by{|song| song.name}  
       array.each{|song| puts "#{array.index(song) + 1}. #{song.artist.name} - #{song.name}"}
-      
     end 
   end
   
   def play_song 
     puts "Which song number would you like to play?"
-    
-
       my_song = gets.strip 
       
-   
        if is_valid?(my_song) 
-        
         array = Song.all.sort_by{|song| song.name} 
-   
-         
         puts "Playing #{array[my_song.to_i - 1].name} by #{array[my_song.to_i - 1].artist.name}"
        end
-
   end
   
   def is_valid?(my_song) 
